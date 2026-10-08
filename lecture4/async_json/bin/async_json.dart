@@ -30,8 +30,33 @@ void printStats(List<Book> books) {
   }
 }
 
+bool roundTripCheck(List<Book> books) {
+  for (final b in books) {
+    final json = b.toJson();
+    final back = Book.fromJson(json);
+    if (jsonEncode(json) != jsonEncode(back.toJson())) {
+      return false;
+    }
+  }
+  return true;
+}
+
 Future<void> main() async {
   final filePath = p.join('data', 'books.json');
-  final books = await loadBooks(filePath);
-  printStats(books);
+
+  try {
+    final books = await loadBooks(filePath);
+    printStats(books);
+    print('roundtrip 一致：${roundTripCheck(books)}');
+  } on FileSystemException catch (e) {
+    print('数据文件缺失，请检查data/books.json。路径：${e.path}');
+  } on FormatException catch (e) {
+    print('JSON格式错误：${e.message}');
+  } on TypeError catch (e) {
+    print('JSON字段类型错误：$e');
+  } catch (e) {
+    print('未知错误：$e');
+  } finally {
+    print('处理结束');
+  }
 }
