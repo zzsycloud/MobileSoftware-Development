@@ -12,12 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Counter Deep',
-      // 【T2 改造点 1】把主题色从默认色改为 teal 种子色
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Counter Deep - 步长与主题'),
+      home: const MyHomePage(title: 'Counter Deep 完整改造版'),
     );
   }
 }
@@ -33,24 +32,49 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0; // 计数值状态
-  int _step = 1;    // 【T2 改造点 2】步长状态（支持 1 / 2 / 5）
+  int _counter = 0;
+  int _step = 1;
 
-  /// 点击 FAB 按当前步长累加
+  // ================= 【T3 改造点 2】State 生命周期钩子日志 =================
+
+  @override
+  void initState() {
+    super.initState();
+    print('[Lifecycle] 1. initState: 一次性初始化（当前 _counter = $_counter）');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('[Lifecycle] 2. didChangeDependencies: 依赖变化（如 Theme/Locale）');
+  }
+
+  @override
+  void didUpdateWidget(covariant MyHomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('[Lifecycle] 4. didUpdateWidget: 父组件重建传入新配置（按 r 热重载时触发）');
+  }
+
+  @override
+  void dispose() {
+    print('[Lifecycle] 5. dispose: 组件销毁清理资源');
+    super.dispose();
+  }
+
+  // ================= 状态更新方法 =================
+
   void _incrementCounter() {
     setState(() {
       _counter += _step;
     });
   }
 
-  /// 重置计数
   void _resetCounter() {
     setState(() {
       _counter = 0;
     });
   }
 
-  /// 【T2 改造点 3】底部弹层选择步长（1 / 2 / 5）
   void _showStepSelector() {
     showModalBottomSheet(
       context: context,
@@ -92,10 +116,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // 【T2 改造点 4】至少两处调用 Theme.of(context) 获取主题数据
-    // 第 1 处：获取主题配色方案 (ColorScheme)
+    // 【T3 改造点 2】build 阶段日志
+    print('[Lifecycle] 3. build: 构建 Widget 树（_counter = $_counter, _step = $_step）');
+
     final colorScheme = Theme.of(context).colorScheme;
-    // 第 2 处：获取主题文本样式 (TextTheme)
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
@@ -121,6 +145,31 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // ================= 【T3 改造点 3】读取并展示自定义图片资源 =================
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: colorScheme.primaryContainer.withOpacity(0.4),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Column(
+                      children: [
+                        Icon(Icons.image_not_supported,
+                            size: 64, color: colorScheme.error),
+                        const SizedBox(height: 8),
+                        const Text('请放入 assets/images/logo.png 并完整重启应用'),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 24),
               Text(
                 '当前累计点击数值（步长：+$_step）：',
                 style: textTheme.titleMedium?.copyWith(
@@ -136,7 +185,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               const SizedBox(height: 24),
-              // 页面快捷步长切换按钮组（1 / 2 / 5）
               Wrap(
                 spacing: 12,
                 children: [1, 2, 5].map((stepValue) {
