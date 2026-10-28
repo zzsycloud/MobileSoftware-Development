@@ -119,6 +119,7 @@ class _StatsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
+        //临时内容mainAxisAlignment: MainAxisAlignment.spaceEvenly,故意实验
         children: const [
           Expanded(child: _StatItem(value: '128', label: '动态')),
           Expanded(child: _StatItem(value: '2.4k', label: '粉丝')),
