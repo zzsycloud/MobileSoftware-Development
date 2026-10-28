@@ -13,19 +13,33 @@ class ProfileCardApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xFFF2F2F7),
         body: Center(
-          child: SizedBox(
-            width: 360,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                _AvatarSection(),
-                SizedBox(height: 16),
-                _NameAndBio(),
-                SizedBox(height: 20),
-                _StatsBar(),
-                SizedBox(height: 20),
-                _TagCloud(),
-              ],
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.08),
+                    blurRadius: 16,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  _AvatarWithBadge(),
+                  SizedBox(height: 16),
+                  _NameAndBio(),
+                  SizedBox(height: 20),
+                  _StatsCard(),
+                  SizedBox(height: 20),
+                  _TagCloud(),
+                ],
+              ),
             ),
           ),
         ),
@@ -34,21 +48,39 @@ class ProfileCardApp extends StatelessWidget {
   }
 }
 
-// ---------- 头像区（步骤一只放 CircleAvatar，不加徽标） ----------
-class _AvatarSection extends StatelessWidget {
-  const _AvatarSection();
+// ---------- 头像 + 在线徽标（Stack + Positioned） ----------
+class _AvatarWithBadge extends StatelessWidget {
+  const _AvatarWithBadge();
 
   @override
   Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: 48,
-      backgroundColor: Color(0xFFE0E0E0),
-      child: Icon(Icons.person, size: 48, color: Colors.grey),
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        const CircleAvatar(
+          radius: 48,
+          backgroundColor: Color(0xFFE0E0E0),
+          child: Icon(Icons.person, size: 48, color: Colors.grey),
+        ),
+        Positioned(
+          right: 2,
+          bottom: 2,
+          child: Container(
+            width: 18,
+            height: 18,
+            decoration: BoxDecoration(
+              color: Colors.green,
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white, width: 2.5),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
 
-// ---------- 姓名与签名 ----------
+// ---------- 姓名与签名（同步骤一，略） ----------
 class _NameAndBio extends StatelessWidget {
   const _NameAndBio();
 
@@ -74,18 +106,25 @@ class _NameAndBio extends StatelessWidget {
   }
 }
 
-// ---------- 统计条：三个 Expanded ----------
-class _StatsBar extends StatelessWidget {
-  const _StatsBar();
+// ---------- 统计条：外面包一层卡片容器 ----------
+class _StatsCard extends StatelessWidget {
+  const _StatsCard();
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        Expanded(child: _StatItem(value: '128', label: '动态')),
-        Expanded(child: _StatItem(value: '2.4k', label: '粉丝')),
-        Expanded(child: _StatItem(value: '86', label: '关注')),
-      ],
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 14),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF7F7FA),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        children: const [
+          Expanded(child: _StatItem(value: '128', label: '动态')),
+          Expanded(child: _StatItem(value: '2.4k', label: '粉丝')),
+          Expanded(child: _StatItem(value: '86', label: '关注')),
+        ],
+      ),
     );
   }
 }
@@ -111,7 +150,7 @@ class _StatItem extends StatelessWidget {
   }
 }
 
-// ---------- 标签云：Wrap + Chip ----------
+// ---------- 标签云（同步骤一，略） ----------
 class _TagCloud extends StatelessWidget {
   const _TagCloud();
 
