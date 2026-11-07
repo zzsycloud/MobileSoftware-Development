@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/book.dart';
+import '../models/route_arguments.dart';
+import '../routes/app_routes.dart';
+import '../widgets/book_tile.dart';
 
 class BookListPage extends StatefulWidget {
   const BookListPage({super.key});
@@ -13,9 +16,10 @@ class BookListPage extends StatefulWidget {
 }
 
 class _BookListPageState extends State<BookListPage> {
-  static const int _initialCount = 20;
+  static const int _pageSize = 20;
 
   late final Future<List<Book>> _booksFuture;
+  int _visibleCount = _pageSize;
 
   @override
   void initState() {
@@ -31,11 +35,62 @@ class _BookListPageState extends State<BookListPage> {
         .toList(growable: false);
   }
 
+  void _loadMore(int total) {
+    if (_visibleCount >= total) return;
+    setState(() {
+      _visibleCount += _pageSize;
+      if (_visibleCount > total) _visibleCount = total;
+    });
+  }
+
+  Future<void> _showFilterSheet(String? category) async {
+    final selected = await showModalBottomSheet<bool>(
+      context: context,
+      builder: (sheetContext) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.filter_alt),
+                title: const Text('仅看高借阅量'),
+                subtitle: const Text('借阅量 ≥ 80'),
+                onTap: () => Navigator.pop(sheetContext, true),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (!mounted || selected != true) return;
+    Navigator.pop(
+      context,
+      BookListResult(highBorrowOnly: true, category: category),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+    final category = args is BookListArgs ? args.category : null;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('图书列表'),
+        title: Text(category ?? '全部图书'),
+        actions: [
+          IconButton(
+            tooltip: '筛选说明',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('长按任意书目，可选择“仅看高借阅量”'),
+                ),
+              );
+            },
+            icon: const Icon(Icons.filter_alt_outlined),
+          ),
+        ],
       ),
       body: FutureBuilder<List<Book>>(
         future: _booksFuture,
@@ -52,26 +107,52 @@ class _BookListPageState extends State<BookListPage> {
             );
           }
 
-          final books = snapshot.data ?? const <Book>[];
-          final visibleBooks = books.take(_initialCount).toList(growable: false);
+          final allBooks = snapshot.data ?? const <Book>[];
+          final books = category == null
+              ? allBooks
+              : allBooks
+                  .where((book) => book.category == category)
+                  .toList(growable: false);
+          final visibleBooks =
+              books.take(_visibleCount).toList(growable: false);
+          final hasMore = _visibleCount < books.length;
 
           return ListView.builder(
             key: const Key('book-list'),
             padding: const EdgeInsets.symmetric(vertical: 8),
-            itemCount: visibleBooks.length,
+            itemCount: visibleBooks.length + 1,
             itemBuilder: (context, index) {
+              if (index == visibleBooks.length) {
+                if (!hasMore) {
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24),
+                    child: Center(child: Text('没有更多了')),
+                  );
+                }
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
+                  child: OutlinedButton.icon(
+                    onPressed: () => _loadMore(books.length),
+                    icon: const Icon(Icons.expand_more),
+                    label: Text(
+                      '加载更多（剩余 ${books.length - _visibleCount} 条）',
+                    ),
+                  ),
+                );
+              }
+
               final book = visibleBooks[index];
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Text(book.category.substring(0, 1)),
+              return BookTile(
+                book: book,
+                onTap: () => Navigator.pushNamed(
+                  context,
+                  AppRoutes.bookDetail,
+                  arguments: book,
                 ),
-                title: Text(
-                  book.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                subtitle: Text('${book.author} · ${book.category}'),
-                trailing: Text('借阅 ${book.borrowCount}'),
+                onLongPress: () => _showFilterSheet(category),
               );
             },
           );
