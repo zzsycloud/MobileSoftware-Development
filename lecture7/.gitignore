@@ -1,0 +1,3 @@
+# Local-only course documents (do not upload to GitHub)
+docs/
+*.docx

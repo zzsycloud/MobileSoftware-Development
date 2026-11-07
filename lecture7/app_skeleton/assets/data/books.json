@@ -1,0 +1,482 @@
+[
+  {
+    "id": "B001",
+    "title": "活着",
+    "author": "余华",
+    "category": "文学",
+    "borrowCount": 96,
+    "description": "以福贵的一生串联中国近现代变迁，语言克制而有力。"
+  },
+  {
+    "id": "B002",
+    "title": "平凡的世界",
+    "author": "路遥",
+    "category": "文学",
+    "borrowCount": 92,
+    "description": "普通青年在城乡变迁中的奋斗、爱情与尊严。"
+  },
+  {
+    "id": "B003",
+    "title": "围城",
+    "author": "钱钟书",
+    "category": "文学",
+    "borrowCount": 88,
+    "description": "以婚姻与职业为镜，讽喻知识分子的困境。"
+  },
+  {
+    "id": "B004",
+    "title": "白鹿原",
+    "author": "陈忠实",
+    "category": "文学",
+    "borrowCount": 85,
+    "description": "关中两大家族半个世纪的恩怨与时代变迁。"
+  },
+  {
+    "id": "B005",
+    "title": "边城",
+    "author": "沈从文",
+    "category": "文学",
+    "borrowCount": 78,
+    "description": "湘西小镇的纯真爱情与乡土人情。"
+  },
+  {
+    "id": "B006",
+    "title": "骆驼祥子",
+    "author": "老舍",
+    "category": "文学",
+    "borrowCount": 83,
+    "description": "人力车夫祥子在城市中的挣扎与沉浮。"
+  },
+  {
+    "id": "B007",
+    "title": "呐喊",
+    "author": "鲁迅",
+    "category": "文学",
+    "borrowCount": 90,
+    "description": "以短篇刻画旧社会的麻木与觉醒。"
+  },
+  {
+    "id": "B008",
+    "title": "红高粱家族",
+    "author": "莫言",
+    "category": "文学",
+    "borrowCount": 81,
+    "description": "高密东北乡的民间记忆与生命张力。"
+  },
+  {
+    "id": "B009",
+    "title": "许三观卖血记",
+    "author": "余华",
+    "category": "文学",
+    "borrowCount": 87,
+    "description": "以卖血串联普通人的生存、亲情与尊严。"
+  },
+  {
+    "id": "B010",
+    "title": "长恨歌",
+    "author": "王安忆",
+    "category": "文学",
+    "borrowCount": 74,
+    "description": "上海弄堂女子四十年的命运浮沉。"
+  },
+  {
+    "id": "B011",
+    "title": "暗算",
+    "author": "麦家",
+    "category": "文学",
+    "borrowCount": 69,
+    "description": "密码破译者的隐秘世界与人性考验。"
+  },
+  {
+    "id": "B012",
+    "title": "额尔古纳河右岸",
+    "author": "迟子建",
+    "category": "文学",
+    "borrowCount": 79,
+    "description": "鄂温克族最后一位酋长女人的自述。"
+  },
+  {
+    "id": "B013",
+    "title": "芙蓉镇",
+    "author": "古华",
+    "category": "文学",
+    "borrowCount": 72,
+    "description": "小镇人物在时代风浪中的悲欢离合。"
+  },
+  {
+    "id": "B014",
+    "title": "棋王",
+    "author": "阿城",
+    "category": "文学",
+    "borrowCount": 76,
+    "description": "以棋写人，呈现朴素而坚韧的生命哲学。"
+  },
+  {
+    "id": "B015",
+    "title": "台北人",
+    "author": "白先勇",
+    "category": "文学",
+    "borrowCount": 66,
+    "description": "迁台人物的乡愁与人生况味。"
+  },
+  {
+    "id": "B016",
+    "title": "深入理解计算机系统",
+    "author": "Randal E. Bryant",
+    "category": "计算机",
+    "borrowCount": 95,
+    "description": "从程序员视角理解硬件、操作系统与编译。"
+  },
+  {
+    "id": "B017",
+    "title": "算法导论",
+    "author": "Thomas H. Cormen",
+    "category": "计算机",
+    "borrowCount": 93,
+    "description": "系统讲解算法设计与复杂度分析。"
+  },
+  {
+    "id": "B018",
+    "title": "代码大全",
+    "author": "Steve McConnell",
+    "category": "计算机",
+    "borrowCount": 89,
+    "description": "软件构建实践的经典指南。"
+  },
+  {
+    "id": "B019",
+    "title": "计算机程序的构造和解释",
+    "author": "Harold Abelson",
+    "category": "计算机",
+    "borrowCount": 84,
+    "description": "用 Scheme 探讨抽象与计算过程。"
+  },
+  {
+    "id": "B020",
+    "title": "设计模式",
+    "author": "Erich Gamma",
+    "category": "计算机",
+    "borrowCount": 86,
+    "description": "23 种经典面向对象设计模式的实践总结。"
+  },
+  {
+    "id": "B021",
+    "title": "重构",
+    "author": "Martin Fowler",
+    "category": "计算机",
+    "borrowCount": 91,
+    "description": "在不改变外部行为的前提下改善代码结构。"
+  },
+  {
+    "id": "B022",
+    "title": "计算机网络：自顶向下方法",
+    "author": "James F. Kurose",
+    "category": "计算机",
+    "borrowCount": 82,
+    "description": "从应用层到链路层理解网络协议。"
+  },
+  {
+    "id": "B023",
+    "title": "数据库系统概念",
+    "author": "Abraham Silberschatz",
+    "category": "计算机",
+    "borrowCount": 80,
+    "description": "数据库原理、SQL 与事务管理。"
+  },
+  {
+    "id": "B024",
+    "title": "操作系统概念",
+    "author": "Abraham Silberschatz",
+    "category": "计算机",
+    "borrowCount": 77,
+    "description": "进程、内存、文件系统与并发控制。"
+  },
+  {
+    "id": "B025",
+    "title": "编译原理",
+    "author": "Alfred V. Aho",
+    "category": "计算机",
+    "borrowCount": 75,
+    "description": "词法、语法、语义分析与代码生成。"
+  },
+  {
+    "id": "B026",
+    "title": "人月神话",
+    "author": "Frederick P. Brooks",
+    "category": "计算机",
+    "borrowCount": 71,
+    "description": "软件工程中的组织、沟通与进度难题。"
+  },
+  {
+    "id": "B027",
+    "title": "程序员修炼之道",
+    "author": "Andrew Hunt",
+    "category": "计算机",
+    "borrowCount": 88,
+    "description": "面向实践的工程习惯与思维方式。"
+  },
+  {
+    "id": "B028",
+    "title": "流畅的 Python",
+    "author": "Luciano Ramalho",
+    "category": "计算机",
+    "borrowCount": 73,
+    "description": "深入 Python 数据模型与惯用法。"
+  },
+  {
+    "id": "B029",
+    "title": "Flutter 实战",
+    "author": "亢少军",
+    "category": "计算机",
+    "borrowCount": 68,
+    "description": "从基础组件到跨平台应用开发。"
+  },
+  {
+    "id": "B030",
+    "title": "代码整洁之道",
+    "author": "Robert C. Martin",
+    "category": "计算机",
+    "borrowCount": 94,
+    "description": "命名、函数与模块的整洁实践。"
+  },
+  {
+    "id": "B031",
+    "title": "史记",
+    "author": "司马迁",
+    "category": "历史",
+    "borrowCount": 90,
+    "description": "纪传体通史，记录上古至汉武帝时代。"
+  },
+  {
+    "id": "B032",
+    "title": "资治通鉴",
+    "author": "司马光",
+    "category": "历史",
+    "borrowCount": 85,
+    "description": "编年体通史，总结历代治乱得失。"
+  },
+  {
+    "id": "B033",
+    "title": "万历十五年",
+    "author": "黄仁宇",
+    "category": "历史",
+    "borrowCount": 88,
+    "description": "从一个年份切入明代政治与社会结构。"
+  },
+  {
+    "id": "B034",
+    "title": "中国历代政治得失",
+    "author": "钱穆",
+    "category": "历史",
+    "borrowCount": 83,
+    "description": "梳理汉唐宋明清的制度演变。"
+  },
+  {
+    "id": "B035",
+    "title": "全球通史",
+    "author": "斯塔夫里阿诺斯",
+    "category": "历史",
+    "borrowCount": 80,
+    "description": "以全球视角叙述人类文明进程。"
+  },
+  {
+    "id": "B036",
+    "title": "枪炮、病菌与钢铁",
+    "author": "贾雷德·戴蒙德",
+    "category": "历史",
+    "borrowCount": 87,
+    "description": "探讨地理与环境对文明差异的影响。"
+  },
+  {
+    "id": "B037",
+    "title": "人类简史",
+    "author": "尤瓦尔·赫拉利",
+    "category": "历史",
+    "borrowCount": 96,
+    "description": "从认知革命到科技革命的人类叙事。"
+  },
+  {
+    "id": "B038",
+    "title": "中国近代史",
+    "author": "蒋廷黻",
+    "category": "历史",
+    "borrowCount": 72,
+    "description": "简明梳理近代中国的转型与挑战。"
+  },
+  {
+    "id": "B039",
+    "title": "罗马帝国衰亡史",
+    "author": "爱德华·吉本",
+    "category": "历史",
+    "borrowCount": 69,
+    "description": "罗马帝国由盛转衰的宏大叙述。"
+  },
+  {
+    "id": "B040",
+    "title": "京都",
+    "author": "林屋辰三郎",
+    "category": "历史",
+    "borrowCount": 64,
+    "description": "以城市史视角呈现日本千年古都。"
+  },
+  {
+    "id": "B041",
+    "title": "丝绸之路",
+    "author": "彼得·弗兰科潘",
+    "category": "历史",
+    "borrowCount": 78,
+    "description": "以贸易路线重述世界历史。"
+  },
+  {
+    "id": "B042",
+    "title": "明代财政",
+    "author": "黄仁宇",
+    "category": "历史",
+    "borrowCount": 61,
+    "description": "分析明代财政制度与国家治理。"
+  },
+  {
+    "id": "B043",
+    "title": "旧制度与大革命",
+    "author": "托克维尔",
+    "category": "历史",
+    "borrowCount": 76,
+    "description": "考察法国大革命前的社会结构。"
+  },
+  {
+    "id": "B044",
+    "title": "日本史",
+    "author": "坂本太郎",
+    "category": "历史",
+    "borrowCount": 67,
+    "description": "梳理日本从古代到近代的发展。"
+  },
+  {
+    "id": "B045",
+    "title": "世界史",
+    "author": "威廉·麦克尼尔",
+    "category": "历史",
+    "borrowCount": 74,
+    "description": "以文明互动为主线的人类历史。"
+  },
+  {
+    "id": "B046",
+    "title": "时间简史",
+    "author": "史蒂芬·霍金",
+    "category": "科学",
+    "borrowCount": 91,
+    "description": "介绍宇宙、黑洞与时间起源。"
+  },
+  {
+    "id": "B047",
+    "title": "物种起源",
+    "author": "查尔斯·达尔文",
+    "category": "科学",
+    "borrowCount": 86,
+    "description": "以自然选择解释生物演化。"
+  },
+  {
+    "id": "B048",
+    "title": "自私的基因",
+    "author": "理查德·道金斯",
+    "category": "科学",
+    "borrowCount": 84,
+    "description": "从基因视角理解进化与行为。"
+  },
+  {
+    "id": "B049",
+    "title": "费曼物理学讲义",
+    "author": "理查德·费曼",
+    "category": "科学",
+    "borrowCount": 89,
+    "description": "以直觉与实验讲解物理学核心概念。"
+  },
+  {
+    "id": "B050",
+    "title": "上帝掷骰子吗",
+    "author": "曹天元",
+    "category": "科学",
+    "borrowCount": 82,
+    "description": "通俗讲述量子力学的发展史。"
+  },
+  {
+    "id": "B051",
+    "title": "宇宙的琴弦",
+    "author": "布莱恩·格林",
+    "category": "科学",
+    "borrowCount": 75,
+    "description": "介绍弦论与宇宙结构。"
+  },
+  {
+    "id": "B052",
+    "title": "寂静的春天",
+    "author": "蕾切尔·卡森",
+    "category": "科学",
+    "borrowCount": 79,
+    "description": "揭示农药对生态环境的危害。"
+  },
+  {
+    "id": "B053",
+    "title": "生命是什么",
+    "author": "埃尔温·薛定谔",
+    "category": "科学",
+    "borrowCount": 73,
+    "description": "从物理视角思考生命的本质。"
+  },
+  {
+    "id": "B054",
+    "title": "基因传",
+    "author": "悉达多·穆克吉",
+    "category": "科学",
+    "borrowCount": 80,
+    "description": "讲述基因研究的历史与伦理。"
+  },
+  {
+    "id": "B055",
+    "title": "复杂",
+    "author": "梅拉妮·米歇尔",
+    "category": "科学",
+    "borrowCount": 70,
+    "description": "介绍复杂系统与涌现现象。"
+  },
+  {
+    "id": "B056",
+    "title": "数学之美",
+    "author": "吴军",
+    "category": "科学",
+    "borrowCount": 88,
+    "description": "用工程案例讲解数学在信息技术中的应用。"
+  },
+  {
+    "id": "B057",
+    "title": "从一到无穷大",
+    "author": "乔治·伽莫夫",
+    "category": "科学",
+    "borrowCount": 77,
+    "description": "以通俗方式介绍数学与科学。"
+  },
+  {
+    "id": "B058",
+    "title": "癌症传",
+    "author": "悉达多·穆克吉",
+    "category": "科学",
+    "borrowCount": 68,
+    "description": "梳理癌症治疗史与医学进步。"
+  },
+  {
+    "id": "B059",
+    "title": "物理世界奇遇记",
+    "author": "乔治·伽莫夫",
+    "category": "科学",
+    "borrowCount": 66,
+    "description": "以故事形式讲解现代物理。"
+  },
+  {
+    "id": "B060",
+    "title": "万物简史",
+    "author": "比尔·布莱森",
+    "category": "科学",
+    "borrowCount": 93,
+    "description": "以轻松笔触讲述科学发现史。"
+  }
+]
